@@ -63,6 +63,14 @@ module.exports = function (grunt) {
 
       cleanModules: {
       	cmd: "rm -rf node_modules"
+      },
+
+      viewRm: {
+      	cmd: "rm -rf views"
+      },
+
+      push: {
+      	cmd: "git push origin master"
       }
     }
 	});
@@ -81,5 +89,6 @@ module.exports = function (grunt) {
 	grunt.registerTask("server", ["sass", "uglify", "develop", "watch"]);
 	grunt.registerTask("run", ["sass", "exec:run"]);
 	grunt.registerTask("cleanDep", ["exec:cleanBower", "exec:cleanModules"]);
+	grunt.registerTask("gitPush", ["exec:viewRm", "exec:push"]);
 
 }
