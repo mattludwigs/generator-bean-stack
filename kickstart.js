@@ -180,7 +180,7 @@ function writeIndexHTML() {
 
 		if (!exists) {
 
-			fs.mkdirSync(__dirname + "/views/");
+			// fs.mkdirSync(__dirname + "/views/");
 
 			fs.writeFile(__dirname + "/views/index.html", "<!DOCTYPE html>\n<html ng-app='" + parentDir + "'>\n<head>\n\t<title>" + parentDir + "</title>\n\t<link rel='stylesheet' href='public/css/styles.css'>\n</head>\n<body>\n\t<h1>Hello</h1>\n\n\t<script src='//localhost:35729/livereload.js'></script>\n\t<script src=\"public/lib/angular/angular.min.js\"></script>\n\t<script src=\"public/js/app.min.js\"></script>\n</body>\n</html>", function (err) {
 					if (err) {
