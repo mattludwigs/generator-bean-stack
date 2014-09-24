@@ -153,53 +153,13 @@ function angularClean() {
 	cleanAngFiles.on("close", function () {
 		if (counter === files.length) {
 			info("Angular cleaned!", "check");
-			writeFiles();
+
+			breakMarker();
+			info("Your all good to go, to start the server run: grunt server");
+			breakMarker();
 		};
 	});
 };
-
-function writeFiles() {
-	breakMarker();
-	info("Setting up some files, grab another beer!", "info");
-	breakMarker();
-
-	fs.writeFile(__dirname + "/src/js/app.js", "var app = angular.module(\"" + appName + "\", []);", function (err) {
-			if (err) {
-				console.log(err.stack);
-				throw err;
-			};
-
-			info("App.js file is ready to go!", "check");
-	});
-	makeViews();
-	writeIndexHTML();
-};
-
-function writeIndexHTML() {
-	fs.exists(__dirname + "/views/index.html", function (exists) {
-
-		if (!exists) {
-
-			fs.writeFile(__dirname + "/views/index.html", "<!DOCTYPE html>\n<html ng-app='" + parentDir + "'>\n<head>\n\t<title>" + parentDir + "</title>\n\t<link rel='stylesheet' href='public/css/styles.css'>\n</head>\n<body>\n\t<h1>Hello</h1>\n\n\t<script src='//localhost:35729/livereload.js'></script>\n\t<script src=\"public/lib/angular/angular.min.js\"></script>\n\t<script src=\"public/js/app.min.js\"></script>\n</body>\n</html>", function (err) {
-					if (err) {
-						console.log(err.stack);
-						throw err;
-					};
-
-					info("Index.html file is ready to go!", "check");
-			});
-		}
-	});
-};
-
-function makeViews() {
-	fs.exists(__dirname + "/views/", function (exists) {
-		if(!exists) {
-			fs.mkdirSync(__dirname + "/views/");
-		}
-	});
-}
-
 
 
 // run this tish!

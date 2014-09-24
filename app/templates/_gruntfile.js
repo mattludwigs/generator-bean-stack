@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 		uglify: {
       my_target: {
         files: {
-          'public/js/app.min.js': ['src/js/app.js']
+          'public/js/app.min.js': ['src/js/app.js', "src/js/controllers/*.js"]
         }
       }
     },
@@ -34,7 +34,7 @@ module.exports = function (grunt) {
 				}
 			},
 			js: {
-				files: ["src/js/*.js"],
+				files: ["src/js/*.js", "src/js/controllers/*.js"],
 				tasks: ["uglify"],
 				options: {
 					nospwan: true
@@ -80,7 +80,7 @@ module.exports = function (grunt) {
 	grunt.registerTask("cleanModules", ["exec:cleanModules"]);
 	grunt.registerTask("server", ["sass", "uglify", "develop", "watch"]);
 	grunt.registerTask("run", ["sass", "exec:run"]);
-	grunt.registerTask("cleanDep", ["exec:cleanBower", "exec:cleanModules"]);
+	grunt.registerTask("clean:dependencies", ["exec:cleanBower", "exec:cleanModules"]);
 
 
 }

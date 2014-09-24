@@ -1,5 +1,13 @@
-.sass-cache
-public/css
-public/js
-public/lib
+# Files
+.DS_Store
+
+# Extensions
+*.log
+
+# Directories
+.grunt
+.idea
+.tmp_bower
+logs
 node_modules
+temp
