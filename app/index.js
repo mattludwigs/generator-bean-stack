@@ -6,7 +6,7 @@ var util = require("util"),
 		spawn = childProcess.spawn,
 		yeoman = require("yeoman-generator");
 
-var AngularBareBones = yeoman.generators.Base.extend({
+var BeanStack = yeoman.generators.Base.extend({
 
 	 promptUser: function() {
       var done = this.async();
@@ -72,4 +72,4 @@ var AngularBareBones = yeoman.generators.Base.extend({
 
 });
 
-module.exports = AngularBareBones;		
+module.exports = BeanStack;		
