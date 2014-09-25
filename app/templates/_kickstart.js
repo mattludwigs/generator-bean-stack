@@ -10,13 +10,13 @@ var kickstart = (function () {
 
 		info: function (msg, type) {
 			if (type === "check") {
-				console.log("\033\[0;36m\[KickStart]:\033[0m\033[0;32m\ " + msg + " √\033[0m");
+				console.log("\033\[0;36m\[BeanStack]:\033[0m\033[0;32m\ " + msg + " √\033[0m");
 			} else if (type === "info") {
-				console.log("\033\[0;36m\[KickStart]:\033[0m " + msg);
+				console.log("\033\[0;36m\[BeanStack]:\033[0m " + msg);
 			} else if (type === "err") {
-				console.log("\033\[0;31m\[KickStart]: " + msg +"\033[0m");
+				console.log("\033\[0;31m\[BeanStack]: " + msg +"\033[0m");
 			} else {
-				console.log("\033\[0;36m\[KickStart]: " + msg +"\033[0m");
+				console.log("\033\[0;36m\[BeanStack]: " + msg +"\033[0m");
 			}
 		},
 
