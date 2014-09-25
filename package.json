@@ -7,9 +7,6 @@
     "type": "git",
     "url": "https://github.com/mattludwigs/generator-bean-stack"
   },
-  "scripts": {
-    "test": "./node_modules/.bin/mocha"
-  },
   "keywords": [
     "yeoman-generator"
   ],
