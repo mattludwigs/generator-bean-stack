@@ -1,19 +1,29 @@
 {
-  "name": "clean-angluar",
-  "version": "0.0.0",
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-sass": "^0.8.1",
-    "grunt-contrib-uglify": "^0.6.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-develop": "^0.4.0",
-    "grunt-exec": "^0.4.6",
-    "time-grunt": "^1.0.0"
+  "name": "generator-bean-stack",
+  "version": "0.1.0",
+  "description": "A yeoman generator for the bean stack - Bootstrap, Express, Angular, and Node",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattludwigs/generator-bean-stack"
   },
-  "engines": {
-    "node": ">=0.10.0"
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
   },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Matt Ludwigs <matt@mattludwigs.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattludwigs/generator-bean-stack/issues"
+  },
+  "homepage": "https://github.com/mattludwigs/generator-bean-stack",
   "dependencies": {
-    "express": "^4.9.4"
+    "js-yaml": "^3.2.2",
+    "yeoman-generator": "^0.17.5"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4"
   }
 }
