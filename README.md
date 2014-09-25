@@ -2,7 +2,11 @@
 
 # Bean Stack for Yoeman
 
-This is a generator that sets up a simple bean stack. What is a bean stack you ask. Well it is Bootstrap, Express, Angular, and Node. At the basic level this gives you a simple Bootstrap and Angular set up with an Express server.
+This is a generator that sets up a simple bean stack. What is a bean stack you ask. Well it is Bootstrap, Express, Angular, and Node. At the basic level this gives you a simple Bootstrap and Angular set up with a simple Express server. Even though Bootstrap is part of the project, this project comes ready to develop with SASS.
+
+Out of the box you have livereload, JS uglify, and SASS compiling. The JS files and SASS files are watched and ready to be processed and reloaded as you develop.
+
+The Bean Stack generator is meant to be unbloated and bare bones for easy customization. Please let me know suggestions to improve this tool.
 
 ## How to Use
 

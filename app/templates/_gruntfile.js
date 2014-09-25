@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 				livereload: true
 			},
 			styles: {
-				files: ["src/css/*.scss"],
+				files: ["src/css/*.scss", "src/css/modules/*.scss", "src/css/modules/common/*.scss"],
 				tasks: ["sass"],
 				options: {
 					nospwan: true

@@ -37,7 +37,6 @@ var BeanStack = yeoman.generators.Base.extend({
 	scaffoldFolders: function () {
 		this.mkdir("public/images");
 		this.mkdir("src/js/controllers");
-		
 	},
 
 	copyMainFiles: function () {
@@ -47,7 +46,9 @@ var BeanStack = yeoman.generators.Base.extend({
 		this.copy("_bower.json", "bower.json");
 		this.copy("gitignore", ".gitignore");
 		this.copy("_kickstart.js", "kickstart.js");
-		this.copy("src/css/main.scss");
+		this.copy("src/css/_main.scss", "src/css/main.scss");
+		this.copy("src/css/modules/common/_mixins.scss", "src/css/modules/common/mixins.scss");
+		this.copy("src/css/modules/common/_variables.scss", "src/css/modules/common/variables.scss");
 		this.copy("_server.js", "server.js");
 		this.copy("app/routes.js", "app/routes.js");
 		

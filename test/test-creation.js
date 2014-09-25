@@ -38,7 +38,9 @@ describe('Bean Stack Generator', function () {
    		"server.js",
    		"app/routes.js",
    		"src/js/app.js",
-   		"views/index.html"
+   		"views/index.html",
+      "src/css/modules/common/mixins.scss",
+      "src/css/modules/common/variables.scss"
   	];
 
   	helpers.mockPrompt(this.app, opts);
