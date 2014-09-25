@@ -1,93 +1,101 @@
-var childProcess = require("child_process"),
-		spawn = childProcess.spawn,
-		path = require("path"),
-		fs = require("fs");
-		parentDir = path.basename(__dirname),
-		appName = makeName();
+var kickstart = (function () {
 
-function info(msg, type) {
-	if (type === "check") {
-		console.log("\033\[0;36m\[KickStart]:\033[0m\033[0;32m\ " + msg + " √\033[0m");
-	} else if (type === "info") {
-		console.log("\033\[0;36m\[KickStart]:\033[0m " + msg);
-	} else {
-		console.log("\033\[0;36m\[KickStart]: " + msg +"\033[0m");
+	var childProcess = require("child_process"),
+			spawn = childProcess.spawn,
+			path = require("path"),
+			fs = require("fs"),
+			error;
+
+	var utils = {
+
+		info: function (msg, type) {
+			if (type === "check") {
+				console.log("\033\[0;36m\[KickStart]:\033[0m\033[0;32m\ " + msg + " √\033[0m");
+			} else if (type === "info") {
+				console.log("\033\[0;36m\[KickStart]:\033[0m " + msg);
+			} else if (type === "err") {
+				console.log("\033\[0;31m\[KickStart]: " + msg +"\033[0m");
+			} else {
+				console.log("\033\[0;36m\[KickStart]: " + msg +"\033[0m");
+			}
+		},
+
+		breakMarker: function () {
+			console.log(">>>>>><<<<<<");
+		}
 	}
-};
 
-function makeName() {
-	parentDir = parentDir.split("-");
-	var i
+	return {
 
-	for (i = 0; i < parentDir.length; i++) {
-		parentDir[i] = parentDir[i].charAt(0).toUpperCase() + parentDir[i].slice(1);
-	};
+		init: function () {
+			utils.info("Setting up your project!");
+			utils.breakMarker();
+			utils.info("Installing node modules, go grab a beer", "info");
 
-	parentDir = parentDir.join(",").replace(",", "");
+			this.npm();
+		},
 
-	return parentDir;
-}
+		npm: function () {
+			error = false;
 
+			var nodeModules = spawn("npm", ["install"]);
 
-function breakMarker() {
-	console.log(">>>>>><<<<<<");
-}
+			nodeModules.stdout.on('data', function (data) {
+			  console.log(data.toString());
+			});
 
-function init() {
-	info("Setting up your project!");
-	breakMarker();
-	info("Installing node modules, go grab a beer", "info");
+			nodeModules.on("exit", function (code) {
 
-	npm();
+				if (code !== 0) {
+					utils.info("Error, try to run: sudo npm install.", "err");
+					error = true;
+				};
+			});
 
-};
+			nodeModules.on("close", function () {
 
-function npm() {
-	var nodeModules = spawn("npm", ["install"]);
+				if (!error) {
+					utils.info("Node Modules Installed", "check");
+				};
 
-	nodeModules.stdout.on('data', function (data) {
-	  console.log(data.toString());
-	});
+				this.bower();
+			}.bind(this));
+		},
 
-	nodeModules.on("close", function () {
-		info("Node Modules Installed", "check");
+		bower: function () {
 
-		bower();
-	});
-};
+			utils.breakMarker();
+			utils.info("installing bower packages, grab more beer", "info");
+			utils.breakMarker();
 
-function bower() {
-	breakMarker();
-	info("installing bower packages, grab more beer", "info");
-	breakMarker();
+			var bowerInstall = spawn("bower", ["install"]);
 
-	var bowerInstall = spawn("bower", ["install"]);
+			bowerInstall.stdout.on("data", function (data) {
+				console.log(data.toString());
+			});
 
-	bowerInstall.stdout.on("data", function (data) {
-		console.log(data.toString());
-	});
+			bowerInstall.on("close", function () {
+				utils.info("Bower Packages installed", "check");
+				utils.breakMarker();
+				this.cleanUpRemoval();
+			}.bind(this));
 
-	bowerInstall.on("close", function () {
-		info("Bower Packages installed", "check");
-		breakMarker();
-		cleanUpRemoval();
-	});
-};
+		},
 
-function cleanUpRemoval () {
-	info("Cleaning up packages", "info");
-	breakMarker();
+		cleanUpRemoval: function () {
+			utils.info("Cleaning up packages", "info");
+			utils.breakMarker();
 
-	var cleanJQ = spawn("rm", ["-rf", __dirname + "/public/lib/jquery/"]);
-	bsClean();
+			var cleanJQ = spawn("rm", ["-rf", __dirname + "/public/lib/jquery/"]);
+			this.bsClean();
 
-	cleanJQ.on("close", function () {
-		info("jQuery cleaned!", "check");
-	});	
-};
+			cleanJQ.on("close", function () {
+				utils.info("jQuery cleaned!", "check");
+			});	
+		},
 
-function bsClean() {
-	var cleanFolders = [
+		bsClean: function () {
+				var cleanFolders = [
 				"grunt",
 				"js",
 				"less",
@@ -112,57 +120,67 @@ function bsClean() {
 
 			cleanBootFiles;
 
-	cleanFolders.forEach(function (folder) {
-		var cleanBoot = spawn("rm", ["-rf", __dirname + "/public/lib/bootstrap/" + folder +"/"]);
-		counters.folder += 1;
-	});
+			cleanFolders.forEach(function (folder) {
+				var cleanBoot = spawn("rm", ["-rf", __dirname + "/public/lib/bootstrap/" + folder +"/"]);
+				counters.folder += 1;
+			});
 
 
-	cleanFiles.forEach(function (file) {
-		cleanBootFiles = spawn("rm", [__dirname + "/public/lib/bootstrap/" + file]);
-		counters.file += 1;
-	});
+			cleanFiles.forEach(function (file) {
+				cleanBootFiles = spawn("rm", [__dirname + "/public/lib/bootstrap/" + file]);
+				counters.file += 1;
+			});
 
-	cleanBootFiles.on("close", function () {
-		if (counters.folder === cleanFolders.length && counters.file === cleanFiles.length) {
-			info("Bootstrap cleaned!", "check");
-			angularClean();
-		};
-	});
+			cleanBootFiles.on("close", function () {
+				if (counters.folder === cleanFolders.length && counters.file === cleanFiles.length) {
+					utils.info("Bootstrap cleaned!", "check");
+					this.angularClean();
+				};
+			}.bind(this));
 
-};
+		},
 
-function angularClean() {
-	var files = [
-		".bower.json",
-		"angular.min.js.gzip",
-		"README.md",
-		"bower.json",
-		"angular-csp.css"
-	],
+		angularClean: function () {
+			var files = [
+				".bower.json",
+				"angular.min.js.gzip",
+				"README.md",
+				"bower.json",
+				"angular-csp.css"
+			],
 
-	cleanAngFiles,
+			cleanAngFiles,
 
-	counter = 0;
+			counter = 0;
 
-	files.forEach(function (file) {
-		cleanAngFiles = spawn("rm", [__dirname + "/public/lib/angular/" + file]);
-		counter++;
-	});
+			files.forEach(function (file) {
+				cleanAngFiles = spawn("rm", [__dirname + "/public/lib/angular/" + file]);
+				counter++;
+			});
 
-	cleanAngFiles.on("close", function () {
-		if (counter === files.length) {
-			info("Angular cleaned!", "check");
+			cleanAngFiles.on("close", function () {
+				if (counter === files.length) {
+					utils.info("Angular cleaned!", "check");
+					this.finished();
+				};
+			}.bind(this));
+		},
 
-			breakMarker();
-			info("Your all good to go, to start the server run: grunt server");
-			breakMarker();
-		};
-	});
-};
+		finished: function () {
+			utils.breakMarker();
+			if (!error){
+				utils.info("Your all good to go, to start the server run: grunt server");
+			} else {
+				utils.info("Error, try to run: sudo npm install. Then run: grunt server", "err");
+			}
+			utils.breakMarker();
+		}
 
+	} // end return
+
+})();
 
 // run this tish!
-init();
+kickstart.init();
 
 
