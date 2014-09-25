@@ -169,7 +169,7 @@ var kickstart = (function () {
 		finished: function () {
 			utils.breakMarker();
 			if (!error){
-				utils.info("Your all good to go, to start the server run: grunt server");
+				utils.info("Your all good to go, to start the server run: grunt server. Your site will be at localhost:9778");
 			} else {
 				utils.info("Error, try to run: sudo npm install. Then run: grunt server", "err");
 			}
