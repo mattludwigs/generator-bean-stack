@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/mattludwigs/generator-bean-stack.svg?branch=master)](https://travis-ci.org/mattludwigs/generator-bean-stack)
 
-# Bean Stack for Yoeman
+# Bean Stack for Yeoman
 
 This is a generator that sets up a simple bean stack. What is a bean stack you ask. Well it is Bootstrap, Express, Angular, and Node. At the basic level this gives you a simple Bootstrap and Angular set up with a simple Express server. Even though Bootstrap is part of the project, this project comes ready to develop with SASS.
 
@@ -10,12 +10,12 @@ The Bean Stack generator is meant to be unbloated and bare bones for easy custom
 
 ## How to Use
 
-First you will need to get Yoemon installed on your computer. Assuming you have node, and thus npm, enter this:
+First you will need to get Yeoman installed on your computer. Assuming you have node, and thus npm, enter this:
 
 ```
-$ npm install -g yoeman
+$ npm install -g yeoman
 ```
-Next, you will want to get the generator from npm so that Yoemon can use it:
+Next, you will want to get the generator from npm so that Yeoman can use it:
 
 ```
 $ npm install -g generator-bean-stack
@@ -44,10 +44,10 @@ to get your project rolling. Enjoy!
 
 ## How to Develop
 
-First you will need to get Yoemon installed on your computer. Assuming you have node, and thus npm, enter this:
+First you will need to get Yeoman installed on your computer. Assuming you have node, and thus npm, enter this:
 
 ```
-$ npm install -g yoeman
+$ npm install -g yeoman
 ```
 
 Then make a diretory or go to the directory where you keep your git projects, and clone the project:
