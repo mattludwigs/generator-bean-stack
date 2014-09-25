@@ -21,7 +21,7 @@ var BeanStack = yeoman.generators.Base.extend({
 			},
 			{
 				name: "ngApp",
-				message: "What do you what to call out ng-app?"
+				message: "What do you what to call your ng-app directive?"
 			}
 		];
 
