@@ -27,19 +27,19 @@ describe('Bean Stack Generator', function () {
 
   it("creates expected core files", function (done) {
 
-  		var expected = [
-				"Gruntfile.js",
-	   		"package.json",
-	   		".bowerrc",
-	   		"bower.json",
-	   		".gitignore",
-	   		"kickstart.js",
-	   		"src/css/main.scss",
-	   		"server.js",
-	   		"app/routes.js",
-	   		"src/js/app.js",
-	   		"views/index.html"
-    	];
+		var expected = [
+      "Gruntfile.js",
+   		"package.json",
+   		".bowerrc",
+   		"bower.json",
+   		".gitignore",
+   		"kickstart.js",
+   		"src/css/main.scss",
+   		"server.js",
+   		"app/routes.js",
+   		"src/js/app.js",
+   		"views/index.html"
+  	];
 
   	helpers.mockPrompt(this.app, opts);
 
