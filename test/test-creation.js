@@ -7,7 +7,8 @@ var path = require('path'),
 
 var opts = {
 	"appName": "test",
-	"ngApp": "test"
+	"ngApp": "test",
+  "type": "routeBean"
 };
 
 describe('Bean Stack Generator', function () {
@@ -38,10 +39,14 @@ describe('Bean Stack Generator', function () {
    		"server.js",
    		"app/routes.js",
    		"src/js/app.js",
-   		"views/index.html",
+   		"public/index.html",
       "src/css/modules/common/mixins.scss",
       "src/css/modules/common/variables.scss"
   	];
+
+    if (opts.type === "beanRoute") {
+      expected.push("src/js/routes.js");
+    }
 
   	helpers.mockPrompt(this.app, opts);
 

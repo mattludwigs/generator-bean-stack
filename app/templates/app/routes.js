@@ -1,10 +1,15 @@
 module.exports = function (app) {
-
 	var path = require("path"),
-			rootpath = __dirname.replace(path.basename(__dirname), "");
-	
-	app.get("/", function (req, res) {
-		res.sendFile(rootpath + "views/index.html");
+			dirName = __dirname.replace(path.basename(__dirname), "");
+	<% if (type === "routeBean") { %>
+	app.get('*', function(req, res) {
+		res.sendFile(dirName + '/public/index.html');
 	});
+	<% } else { %>
+	app.get("/", function(req, res) {
+		res.sendFile(dirName + "/public/index.html");
+	});
+	// Add your routes below
+	<% } %>
 	
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="<%= app %>">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, user-scalable=0">
+	<title><%= siteName %></title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/styles.css"> <!-- custom styles -->
+
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">Bean Stack</a>
+		</div>
+	</nav>
+	<% if (type === "routeBean") { %>
+	<div ng-view></div>
+	<% } else { %>
+	<!-- remove and make your stuff -->
+	<div class="jumbotron">
+		<ul>
+			<li><strong>Included is:</strong>
+				<ul>
+					<li>Bootstrap</li>
+					<li>Express</li>
+					<li>Angular</li>
+				</ul>
+			</li>
+		</ul>
+
+		<p class="text-center">Powered by Node.JS</p>
+	</div>
+	<% } %>
+
+	<script src="//localhost:35729/livereload.js"></script>
+	<script src="lib/angular/angular.min.js"></script>
+	<% if (type === "routeBean") { %>
+	<script src="lib/angular-route/angular-route.min.js"></script>
+	<% } %>
+	<script src="js/app.min.js"></script>
+</body>
+</html>
