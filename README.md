@@ -6,7 +6,7 @@ This is a generator that sets up a simple BEAN stack. What is a BEAN stack you a
 
 Out of the box you have livereload, JS uglify, and SASS compiling. The JS files and SASS files are watched and ready to be processed and reloaded as you develop.
 
-The BEAN Stack generator is meant to be unbloated and bare bones for easy customization. Please let me know suggestions to improve this tool. As of version 0.3.0, you have the option now for a base bean and a ngRoute bean. The first gives you the very basic BEAN stack to get going, while the later will get you set up for the single page application using the client side routing of ngRoutes.
+The BEAN Stack generator is meant to be unbloated and bare bones for easy customization. Please let me know suggestions to improve this tool. As of version 0.3.0, you have the option now for a base bean and a ngRoute bean. The first gives you the very basic BEAN stack to get going, while the latter will get you set up for the single page application using the client side routing of ngRoutes.
 
 ## How to Use
 
