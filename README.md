@@ -53,7 +53,7 @@ This is where your server side modules should live. You will always start out wi
 ### Public Directory
 This is where all your compiled SASS and uglified JS will go. Plus your images directory lives here. The main area you will work with is when you add html files this is the place to do so. In the ngRoute generator there will an extra directory in here called views, and this is where you can add your views.
 
-## Src Directory
+### Src Directory
 This is where you write your JS and SASS. Remember the project is on livereload watching these files, so in development your changes will sent through the compiling and uglifying when you save these files, and then your browser will be updated.
 
 ## How to Develop
