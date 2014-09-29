@@ -2,7 +2,7 @@
 
 # BEAN Stack for Yeoman
 
-This is a generator that sets up a simple BEAN stack. What is a BEAN stack you ask. Well it is Bootstrap, Express, Angular, and Node. At the basic level this gives you a simple Bootstrap and Angular set up with a simple Express server. 
+This is a generator that sets up a simple BEAN stack. What is a BEAN stack you ask. Well it is Bootstrap, Express, Angular, and Node. At the basic level this gives you a simple Bootstrap and Angular set up with a simple Express server. If Yeoman is not your thing, then I recommend checking out the BEAN Stack project's [github](https://github.com/mattludwigs/generator-bean-stack) to clone or download the base code for the varise BEAN stack options.
 
 Out of the box you have livereload, JS uglify, and SASS compiling. The JS files and SASS files are watched and ready to be processed and reloaded as you develop.
 
