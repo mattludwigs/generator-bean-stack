@@ -99,6 +99,7 @@ To test make sure you're in the root of the cloned git project and run:
 
 ```
 $ npm test
+```
 
 ## License
 
