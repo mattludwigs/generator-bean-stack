@@ -38,9 +38,34 @@ $ yo bean-stack
 Then once the project is set up, type:
 
 ```
-$ grunt server
+$ grunt
 ```
 to get your project rolling, and your site should be up and running at port 9778.
+
+### Sub Generators
+As of version 0.4.0 a new feature is added to to generate controllers has your wish. Just type in your terminal, in your porject:
+
+```
+$ yo bean-stack:controller <controller name>
+```
+For example, if I wanted a controller called "myCtrl" I could type:
+
+```
+$ yo bean-stack:controller my
+```
+or 
+
+```
+$ yo bean-stack:controller myCtrl
+```
+
+or
+
+```
+$ yo bean-stack:controller myController
+```
+
+This will generate a new file at this location: src/js/controllers/my.js. You can add the Ctrl at the end of the controller name or not. The logic should handle the parsing of what you entered and generate properly.
 
 ## File Structure
 While trying to make the file system easy to use, it would be good to explain a few things.
@@ -55,6 +80,43 @@ This is where all your compiled SASS and uglified JS will go. Plus your images d
 
 ### Src Directory
 This is where you write your JS and SASS. Remember the project is on livereload watching these files, so in development your changes will sent through the compiling and uglifying when you save these files, and then your browser will be updated.
+
+## Grunt Options
+
+### grunt
+This is your base grunt command that will start your server along with compiling your SASS, uglifying your JS, and starting up the live reload.
+
+### grunt build
+This compiles the SASS files, and uglifys the JS files.
+
+### grunt jsmin
+This uglifys your JS.
+
+### grunt sass
+This compiles your SASS files.
+
+### grunt clean
+This has two options. First:
+
+```
+$ grunt clean:modules
+```
+Which removes your node_modules directory
+
+and
+
+```
+$ grunt clean:dependencies
+```
+Which removes ALL the dependencies from the project, both bower and node_modules
+
+### grunt server
+This will start the same server as just using grunt. However, when v0.5.0 is released this will no longer be in use and it best to use:
+```
+$ grunt
+```
+when you want to start your server.
+
 
 ## How to Develop
 

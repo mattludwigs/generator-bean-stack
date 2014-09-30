@@ -26,6 +26,11 @@ var BeanStack = yeoman.generators.Base.extend({
 				default: "App"
 			},
 			{
+				name: "addController",
+				message: "Would you like to add a controller?",
+				default: false
+			},
+			{
 				name: "type",
 				type: "rawlist",
 				message: "What type of BEAN stack would you like to start off with?",
@@ -36,7 +41,7 @@ var BeanStack = yeoman.generators.Base.extend({
 	      	},
 	      	{
 	      		value: "routeBean",
-	      		name: "ngRoute Bean",
+	      		name: "Route Bean",
 	      	}
 				],
 
@@ -92,6 +97,16 @@ var BeanStack = yeoman.generators.Base.extend({
 		this.template("src/js/_app.js", "src/js/app.js", data);
 		this.template("public/_index.html", "public/index.html", data);
 		this.template("app/routes.js", "app/routes.js", data);
+	},
+
+	generatorCtrls: function () {
+		if (this.addController) {
+			var done = this.async();
+
+			this.invoke("bean-stack:controller", {args: ["AppCtrl"]}, function () {
+				done();
+			});
+		}
 	},
 
 	runKickstart: function () {
