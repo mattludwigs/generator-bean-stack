@@ -8,6 +8,15 @@ Out of the box you have livereload, JS uglify, and SASS compiling. The JS files 
 
 The BEAN Stack generator is meant to be unbloated and bare bones for easy customization. Please let me know suggestions to improve this tool. As of version 0.3.0, you have the option now for a base bean and a ngRoute bean. The first gives you the very basic BEAN stack to get going, while the latter will get you set up for the single page application using the client side routing of ngRoutes.
 
+### Info
+Node Versions Supported:
+
+* 0.10.x
+* 0.11.x
+
+Current BEAN Stack Generator Version:
+0.4.3
+
 ## How to Use
 
 First you will need to get Yeoman installed on your computer. Assuming you have node, and thus npm, enter this:
