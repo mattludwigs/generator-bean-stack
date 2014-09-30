@@ -111,7 +111,7 @@ $ grunt clean:dependencies
 Which removes ALL the dependencies from the project, both bower and node_modules
 
 ### grunt server
-This will start the same server as just using grunt. However, when v0.5.0 is released this will no longer be in use and it best to use:
+This will start the same server as just using grunt. However, when v0.5.0 is released this will no longer be in use and it is best to use:
 ```
 $ grunt
 ```
@@ -151,7 +151,7 @@ $ yo bean-stack
 A start up script will run as part of the process so you don't need to run any thing else to get all your dependencies. All you need to do is run:
 
 ```
-$ grunt server
+$ grunt
 ```
 and enjoy!
 
