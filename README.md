@@ -43,7 +43,7 @@ $ grunt
 to get your project rolling, and your site should be up and running at port 9778.
 
 ### Sub Generators
-As of version 0.4.0 a new feature is added to to generate controllers has your wish. Just type in your terminal, in your porject:
+As of version 0.4.0 a new feature is added to to generate controllers as you wish. Just type in your terminal, in your porject:
 
 ```
 $ yo bean-stack:controller <controller name>
