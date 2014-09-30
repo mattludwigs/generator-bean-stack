@@ -18,7 +18,6 @@ var ControllerGenerator = yeoman.generators.NamedBase.extend({
 
 			context.moduleName = this._cap(context.name);
 			name = context.name;
-			console.log(name);
 			context.name = name + "Ctrl";
 
 		} else if (context.name.indexOf("Ctrl") !== -1) {

@@ -25,11 +25,11 @@ var BeanStack = yeoman.generators.Base.extend({
 				message: "What do you what to call your ng-app directive?",
 				default: "App"
 			},
-			{
-				name: "addController",
-				message: "Would you like to add a controller?",
-				default: false
-			},
+			// {
+			// 	name: "addController",
+			// 	message: "Would you like to add a controller?",
+			// 	default: false
+			// },
 			{
 				name: "type",
 				type: "rawlist",
@@ -53,6 +53,7 @@ var BeanStack = yeoman.generators.Base.extend({
 			this.appName = props.appName;
 			this.ngApp = props.ngApp;
 			this.type = props.type;
+			// this.ctrl = props.addController
 
 			console.log(this.type);
 
@@ -102,7 +103,8 @@ var BeanStack = yeoman.generators.Base.extend({
 	generatorCtrls: function () {
 		if (this.addController) {
 			var done = this.async();
-
+			
+			
 			this.invoke("bean-stack:controller", {args: ["AppCtrl"]}, function () {
 				done();
 			});
