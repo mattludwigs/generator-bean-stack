@@ -41,6 +41,11 @@ var BeanStack = yeoman.generators.Base.extend({
 				],
 
 				default: 0
+			},
+			{
+				name: "directiveDir",
+				message: "Would you like a directives directory?(y or n)",
+				default: "n"
 			}
 		];
 
@@ -48,9 +53,7 @@ var BeanStack = yeoman.generators.Base.extend({
 			this.appName = props.appName;
 			this.ngApp = props.ngApp;
 			this.type = props.type;
-			// this.ctrl = props.addController
-
-			console.log(this.type);
+			this.directive = props.directiveDir;
 
 			done();
 		}.bind(this));
@@ -61,6 +64,8 @@ var BeanStack = yeoman.generators.Base.extend({
 		this.mkdir("public/images");
 		this.mkdir("src/js/controllers");
 		this.mkdir("src/js/services");
+
+		this.makeDirective();
 	},
 
 	copyMainFiles: function () {
@@ -103,6 +108,22 @@ var BeanStack = yeoman.generators.Base.extend({
 			this.invoke("bean-stack:controller", {args: ["AppCtrl"]}, function () {
 				done();
 			});
+		}
+	},
+
+	generatorDirective: function () {
+		if (this.addDirective) {
+			var done = this.async();
+
+			this.invoke("bean-stack:directive", {args: ["directive"]}, function () {
+				done();
+			});
+		}
+	},
+
+	makeDirective: function () {
+		if (this.directive.toLowerCase() === "y") {
+			this.mkdir("src/js/directives");
 		}
 	},
 

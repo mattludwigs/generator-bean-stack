@@ -15,7 +15,7 @@ Node Versions Supported:
 * 0.11.x
 
 Current BEAN Stack Generator Version:
-0.4.7
+0.5.0
 
 ## How to Use
 
@@ -52,8 +52,9 @@ $ grunt
 to get your project rolling, and your site should be up and running at port 9778.
 
 ### Sub Generators
-As of version 0.4.0 a new feature is added to to generate controllers as you wish. Just type in your terminal, in your porject:
+As of version 0.5.0 a new feature is added to to generate directives as you wish. 
 
+### Controller
 ```
 $ yo bean-stack:controller <controller name>
 ```
@@ -72,9 +73,22 @@ or
 
 ```
 $ yo bean-stack:controller myController
+
 ```
 
 This will generate a new file at this location: src/js/controllers/my.js. You can add the Ctrl at the end of the controller name or not. The logic should handle the parsing of what you entered and generate properly.
+
+### Directive
+```
+$ yo bean-stack:directive <directive name>
+```
+For example, if I wanted a directive called "doStuff" I could type:
+
+```
+$ yo bean-stack:directive doStuff
+```
+
+This will generate a new file at this location: src/js/directives/doStuff.js.
 
 ## File Structure
 While trying to make the file system easy to use, it would be good to explain a few things.

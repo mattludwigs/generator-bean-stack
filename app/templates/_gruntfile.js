@@ -63,10 +63,6 @@ module.exports = function (grunt) {
 
       cleanModules: {
       	cmd: "rm -rf node_modules"
-      },
-
-      decrepit: {
-      	cmd: "echo  The use of grunt server is decrepit, and will be removed starting at v0.5.0. Please use just use grunt to start server"
       }
     }
 	});
@@ -83,7 +79,6 @@ module.exports = function (grunt) {
 	grunt.registerTask("sass", ["sass"]);
 	grunt.registerTask("build", ["sass", "uglify"]);
 	grunt.registerTask("clean:modules", ["exec:cleanModules"]);
-	grunt.registerTask("server", ["exec:decrepit", "sass", "uglify", "develop", "watch"]);
 	grunt.registerTask("clean:dependencies", ["exec:cleanBower", "exec:cleanModules"]);
 
 
