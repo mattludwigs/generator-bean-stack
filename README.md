@@ -15,7 +15,7 @@ Node Versions Supported:
 * 0.11.x
 
 Current BEAN Stack Generator Version:
-0.5.1
+0.5.2
 
 ## How to Use
 
@@ -115,7 +115,7 @@ This compiles the SASS files, and uglifys the JS files.
 ### grunt jsmin
 This uglifys your JS.
 
-### grunt sass
+### grunt css
 This compiles your SASS files.
 
 ### grunt clean

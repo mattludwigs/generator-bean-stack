@@ -76,7 +76,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("default", ["sass", "uglify", "develop", "watch"]);
 	grunt.registerTask("jsmin", ["uglify"]);
-	grunt.registerTask("sass", ["sass"]);
+	grunt.registerTask("css", ["sass"]);
 	grunt.registerTask("build", ["sass", "uglify"]);
 	grunt.registerTask("clean:modules", ["exec:cleanModules"]);
 	grunt.registerTask("clean:dependencies", ["exec:cleanBower", "exec:cleanModules"]);
