@@ -15,7 +15,7 @@ Node Versions Supported:
 * 0.11.x
 
 Current BEAN Stack Generator Version:
-0.5.0
+0.5.1
 
 ## How to Use
 
