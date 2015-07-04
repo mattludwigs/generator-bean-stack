@@ -1,13 +1,9 @@
-(function () {
+angular.module("<%= moduleName %>", [])
 
-	var app = angular.module("<%= moduleName %>", []);
-
-	app.directive("<%= name %>", function () {
+	.directive("<%= name %>", function () {
 
 		return {
 			
 		}
 
 	});
-
-})();

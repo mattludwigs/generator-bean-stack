@@ -1,9 +1,5 @@
-(function () {
+angular.module("<%= moduleName %>", [])
 
-	var app = angular.module("<%= moduleName %>", []);
-
-	app.controller("<%= name %>", ["$scope", function ($scope) {
+	.controller("<%= name %>", ["$scope", function ($scope) {
 
 	}]);
-
-})();

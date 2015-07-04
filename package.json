@@ -1,6 +1,6 @@
 {
   "name": "generator-bean-stack",
-  "version": "0.5.2",
+  "version": "0.5.1",
   "description": "A Yeoman generator for the BEAN stack - Bootstrap, Express, Angular, and Node",
   "private": false,
   "repository": {
